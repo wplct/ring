@@ -1,0 +1,63 @@
+text:
+  setsite:
+    help: '欢迎使用擂台挑战插件\n开始设置插件%num号擂台\n请按顺序设置擂台组成部分'
+    setit1-1: '请点击擂台的第一个角(三维)'
+    setit1-2: '是这里么，请输入/ring setit 确认'
+    setit1-3: '设置完成'
+    setit2-1: '现在请点击擂台的第二个个角(三维)'
+    setit2-2: '是这里么，请输入/ring setit 确认'
+    setit2-3: '设置完成;擂台高%h宽%w长%s有%num个方块'
+    setit3-1: '请站在挑战者出生点输入/ring setit'
+    setit3-2: '挑战者出生点设置完成' 
+    setit4-1: '请站在擂主出生点输入/ring setit'
+    setit4-2: '擂主出生点设置完成' 
+    setit5-1: '请站在退出点输入/ring setit'
+    setit5-2: '退出地点设置完成'
+    setit6-1: '请点击显示牌'
+    setit6-1: '是这里么，请输入/ring setit 确认'
+    setit6-1: '显示牌设置完成'
+    setit7-1: '请点击操作牌'
+    setit7-1: '是这里么，请输入/ring setit 确认'
+    setit7-1: '操作牌设置完成'
+    setit8-1: '擂台%num已经设置完成'
+  fight:
+    showbrand:
+      nobody:
+        1:'点击图标成为擂主接受挑战'
+      nochallenger:
+        1: '当前赏金:%shangjin' #无人挑战时显示#
+        2: '当前擂主:%player1'
+        3: '点击花费%money挑战擂主'
+      fighting:
+        1: '正在战斗中'
+        2: '当前赏金:%shangjin'
+        3: '当前擂主:%player1'
+        4: '当前挑战者:%player2'
+    operation:
+      nobody:
+        1: ''
+      nochallenger:
+        1: '当前赏金:%shangjin'
+        2: '剩余退出时间:%time'
+      fighting:
+        1: '战斗剩余时间:%time'
+    message:
+      onchallenger:
+        0:'玩家%player2已开始挑战擂台，请准备'
+        1:'5秒后开始战斗'
+        2:'4秒后开始战斗'
+        3:'&c3秒后开始战斗'
+        4:'&c2秒后开始战斗'
+        5:'&c1秒后开始战斗'
+        6:'&c&l开始战斗'
+    lose: '[擂台%number]擂主%player1 战胜了 挑战者%player2，当前赏金为%shangjin'
+    success: '[擂台%number]挑战者%player2战胜了擂主%player1，现在他成为了擂主！当前赏金为%shangjin，快来挑战他吧！'
+    overtime:
+set:
+  time:
+    fighttime: 120 #战斗最长时间#
+    againtime: 500 #再次挑战时间#
+    outtime: 320 #只有擂主坚持这段时间没有被赶下擂台，则可以随时选择退出擂台并获得赏金。#
+  message:
+    state: true #是否使用限制距离的消息提示，false为全服广播#
+    distance: 50 #单位为格子，只有此范围内的玩家才可以接收到战报#
