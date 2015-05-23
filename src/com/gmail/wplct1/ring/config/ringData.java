@@ -22,6 +22,7 @@ public class ringData {
 	
 	int outtime;
 	int overtime;
+	public ringData(){}
 	public ringData(Location ringLocation1,Location ringLocation2,Location arena,Location challenger,Location out,Location showbrand,Location operation){
 		this.ringLocation1 = ringLocation1;
 		this.ringLocation2 = ringLocation2;

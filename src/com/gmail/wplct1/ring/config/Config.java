@@ -13,6 +13,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import com.gmail.wplct1.ring.ring;
 
+
 public class Config {
 	ring ring;
 	public  String  text_setsite_help;
@@ -115,8 +116,8 @@ public class Config {
 		text_setsite_setit1_3 = config.getString("text.setsite.setit1.3","设置完成");
 		
 		text_setsite_setit2_1 = config.getString("text.setsite.setit2.1","现在请点击擂台的第二个个角(三维)");
-		text_setsite_setit2_1 = config.getString("text.setsite.setit2.1","是这里么，请输入/ring setit 确认");
-		text_setsite_setit2_1 = config.getString("text.setsite.setit2.1","设置完成;擂台高%h宽%w长%s有%num个方块");
+		text_setsite_setit2_2 = config.getString("text.setsite.setit2.2","是这里么，请输入/ring setit 确认");
+		text_setsite_setit2_3 = config.getString("text.setsite.setit2.3","设置完成;擂台高%h宽%w长%s有%num个方块");
 		
 		text_setsite_setit3_1 = config.getString("text.setsite.setit3.1","请站在挑战者出生点输入/ring setit");
 		text_setsite_setit3_2 = config.getString("text.setsite.setit3.2","挑战者出生点设置完成");
@@ -198,5 +199,32 @@ public class Config {
 		double z = config.getDouble("Data."+i+"."+name+".z");
 		
 		return new Location(world,x,y,z);
+	}
+	public void save(){
+		config.set("Data.number",Data_number);
+		for(ringData data:ringData){
+			int index = data.id;
+			config.set("Data."+index+".name",data.name);
+			config.set("Data."+index+".id",data.id);
+			this.save(data.ringLocation1,"ringLocation1",index);
+			this.save(data.ringLocation2,"ringLocation2",index);
+			this.save(data.arena,"arena",index);
+			this.save(data.challenger,"challenger",index);
+			this.save(data.out,"out",index);
+			this.save(data.showbrand,"showbrand",index);
+			this.save(data.operation,"operation",index);
+		}
+		File dataFile = new File(ring.getDataFolder(),"config.yml");
+		try {
+			config.save(dataFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void save(Location l,String name,int i){
+		config.set("Data."+i+"."+name+".world",l.getWorld().getName());
+		config.set("Data."+i+"."+name+".x",l.getBlockX());
+		config.set("Data."+i+"."+name+".y",l.getBlockY());
+		config.set("Data."+i+"."+name+".z",l.getBlockZ());
 	}
 }
